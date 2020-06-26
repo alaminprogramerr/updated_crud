@@ -69,14 +69,14 @@ export default function MenuListComposition() {
         >
             <MenuIcon/>
         </Button>
-        <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+        <Popper style={{zIndex:'99999'}}  open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
-            <Grow
+            <Grow 
               {...TransitionProps}
               style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
             >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
+              <Paper >
+                <ClickAwayListener  onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <MenuItem onClick={handleClose}>
                         <Link to='/home'>Home</Link>
